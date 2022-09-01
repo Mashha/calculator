@@ -1,7 +1,6 @@
 // operations
-
 function add(a, b) {
-  return a + b
+  return parseInt(a) + parseInt(b)
 }
 
 function subtract(a, b) {
@@ -17,7 +16,6 @@ function divide(a, b) {
 }
 
 // function that calls operations
-
 function operate(operator, a, b) {
   switch (operator) {
     case '+':
@@ -31,16 +29,43 @@ function operate(operator, a, b) {
   }
 }
 
-// click on the number buttons and make them display on the screen
-
-let buttonNumbers = document.querySelectorAll('.number')
 let inputDisplay = document.getElementById('display')
-let storingValues = []
+let displayValue = ''
+let operation = ''
+let a = ''
+let b = ''
 
-buttonNumbers.forEach(function (button) {
+// click on the number buttons and make them display on the screen
+document.querySelectorAll('.number').forEach((button) => {
   button.addEventListener('click', (e) => {
     inputDisplay.value += e.target.value
+    if (operation === '') {
+      a += e.target.value
+    } else {
+      b += e.target.value
+    }
   })
 })
 
-storingValues.push(inputDisplay.value)
+// get operations
+document.querySelectorAll('.operationButtons').forEach((operator) => {
+  operator.addEventListener('click', () => {
+    //add operators
+    operation = operator.value
+    inputDisplay.value += operator.value
+  })
+})
+
+// click on "=" and get total
+document.getElementById('total').addEventListener('click', () => {
+  let sum = operate(operation, a, b)
+  inputDisplay.value = sum
+})
+
+// clear the display and variables
+document.getElementById('clear').addEventListener('click', () => {
+  inputDisplay.value = ''
+  a = ''
+  b = ''
+  operation = ''
+})
