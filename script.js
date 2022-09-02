@@ -29,8 +29,9 @@ function operate(operator, a, b) {
   }
 }
 
-let inputDisplay = document.getElementById('display')
-let displayValue = ''
+let inputDisplay = document.getElementById('displayInput')
+let outputDisplay = document.getElementById('displayOutput')
+let total = ''
 let operation = ''
 let a = ''
 let b = ''
@@ -50,21 +51,27 @@ document.querySelectorAll('.number').forEach((button) => {
 // get operations
 document.querySelectorAll('.operationButtons').forEach((operator) => {
   operator.addEventListener('click', () => {
-    //add operators
-    operation = operator.value
     inputDisplay.value += operator.value
+    if ((a !== '') & (b !== '')) {
+      total = operate(operation, a, b)
+      outputDisplay.value = total
+      a = total
+      b = ''
+    }
+    operation = operator.value
   })
 })
 
 // click on "=" and get total
 document.getElementById('total').addEventListener('click', () => {
-  let sum = operate(operation, a, b)
-  inputDisplay.value = sum
+  total = operate(operation, a, b)
+  outputDisplay.value = total
 })
 
 // clear the display and variables
 document.getElementById('clear').addEventListener('click', () => {
   inputDisplay.value = ''
+  outputDisplay.value = ''
   a = ''
   b = ''
   operation = ''
