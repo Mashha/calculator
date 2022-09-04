@@ -12,7 +12,12 @@ function multiply(a, b) {
 }
 
 function divide(a, b) {
-  return a / b
+  // if somebody divides by 0, return error
+  if (b === '0') {
+    return 'ERROR'
+  } else {
+    return a / b
+  }
 }
 
 // function that calls operations
@@ -52,7 +57,7 @@ document.querySelectorAll('.number').forEach((button) => {
 document.querySelectorAll('.operationButtons').forEach((operator) => {
   operator.addEventListener('click', () => {
     inputDisplay.value += operator.value
-    if ((a !== '') & (b !== '')) {
+    if (a !== '' && b !== '') {
       total = operate(operation, a, b)
       outputDisplay.value = total
       a = total
@@ -64,8 +69,13 @@ document.querySelectorAll('.operationButtons').forEach((operator) => {
 
 // click on "=" and get total
 document.getElementById('total').addEventListener('click', () => {
-  total = operate(operation, a, b)
-  outputDisplay.value = total
+  // if there are numbers or operators missing, display massage
+  if (a === '' || b === '' || operation === '') {
+    outputDisplay.value = 'Values missing'
+  } else {
+    total = operate(operation, a, b)
+    outputDisplay.value = total
+  }
 })
 
 // clear the display and variables
