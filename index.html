@@ -13,50 +13,55 @@
         <input type="text" name="screen" value="" id="displayInput" />
         <input type="text" name="screen" value="" id="displayOutput" />
       </div>
-      <input type="button" value="7" name="seven" class="number" />
-      <input type="button" value="8" name="eight" class="number" />
-      <input type="button" value="9" name="nine" class="number" />
+      <input type="button" value="7" name="seven" data-key="7" class="number" />
+      <input type="button" value="8" name="eight" data-key="8" class="number" />
+      <input type="button" value="9" name="nine" data-key="9" class="number" />
       <input
         type="button"
         value="/"
         name="divide"
+        data-key="/"
         id="divide"
         class="operationButtons"
       />
 
-      <input type="button" value="4" name="four" class="number" />
-      <input type="button" value="5" name="five" class="number" />
-      <input type="button" value="6" name="six" class="number" />
+      <input type="button" value="4" name="four" data-key="4" class="number" />
+      <input type="button" value="5" name="five" data-key="5" class="number" />
+      <input type="button" value="6" name="six" data-key="6" class="number" />
       <input
         type="button"
         value="*"
         name="multiply"
+        data-key="*"
         id="multiply"
         class="operationButtons"
       />
 
-      <input type="button" value="1" name="one" class="number" />
-      <input type="button" value="2" name="two" class="number" />
-      <input type="button" value="3" name="three" class="number" />
+      <input type="button" value="1" name="one" data-key="1" class="number" />
+      <input type="button" value="2" name="two" data-key="2" class="number" />
+      <input type="button" value="3" name="three" data-key="3" class="number" />
       <input
         type="button"
         value="-"
         name="subtract"
+        data-key="-"
         id="subtract"
         class="operationButtons"
       />
 
-      <input type="button" value="0" name="zero" class="number" />
-      <input type="button" value="C" name="clear" id="clear" />
-      <input type="button" value="." name="decimal" id="decimal" >
-      <input type="button" value="=" name="total" id="total" />
+      <input type="button" value="0" name="zero" data-key="0" class="number" />
+      <input type="button" value="C" name="clear" data-key="Delete" id="clear" />
+      <input type="button" value="." name="decimal" data-key="," id="decimal" >
+      <input type="button" value="=" name="total" data-key="Enter" id="total" />
       <input
         type="button"
         value="+"
         name="add"
+        data-key="+"
         id="add"
         class="operationButtons"
       />
+      <input type="button" value="Back" name="backspace" data-key="Backspace" id="backspace">
     </div>
 
     <script src="script.js"></script>

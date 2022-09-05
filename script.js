@@ -61,6 +61,8 @@ document.querySelectorAll('.operationButtons').forEach((operator) => {
     decimal.disabled = false
     if (a !== '' && b !== '') {
       total = operate(operation, a, b)
+      inputDisplay.value = total
+      inputDisplay.value += operator.value
       outputDisplay.value = total
       a = total
       b = ''
@@ -72,10 +74,10 @@ document.querySelectorAll('.operationButtons').forEach((operator) => {
 
 //add decimal numbers and disable if user wants to add more
 let decimal = document.getElementById('decimal')
-decimal.addEventListener('click', disableButton)
+decimal.addEventListener('click', decimalButton)
 
-function disableButton() {
-  if (a.toString().indexOf('.') === -1) {
+function decimalButton() {
+  if (a.toString().indexOf('.') === -1 && operation == '') {
     a += '.'
     inputDisplay.value += '.'
   } else if (operation !== '' && !b.includes('.')) {
@@ -93,8 +95,15 @@ document.getElementById('total').addEventListener('click', () => {
     outputDisplay.value = 'Values missing'
   } else {
     total = operate(operation, a, b)
+    inputDisplay.value += '='
     outputDisplay.value = total
   }
+})
+
+//delete one by one
+let backspaceButton = document.getElementById('backspace')
+backspaceButton.addEventListener('click', () => {
+  inputDisplay.value = inputDisplay.value.slice(0, -1)
 })
 
 // clear the display and variables
@@ -104,5 +113,16 @@ document.getElementById('clear').addEventListener('click', () => {
   a = ''
   b = ''
   operation = ''
+  total = ''
   decimal.disabled = false
+})
+
+//keyboard support
+
+window.addEventListener('keydown', function (e) {
+  let button = document.querySelector(`input[data-key="${e.key}"]`)
+
+  if (!button) return // stop the function from running
+  console.log(button)
+  button.click()
 })
