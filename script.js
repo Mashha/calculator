@@ -1,6 +1,6 @@
 // operations
 function add(a, b) {
-  return parseInt(a) + parseInt(b)
+  return parseFloat(a) + parseFloat(b)
 }
 
 function subtract(a, b) {
@@ -57,15 +57,34 @@ document.querySelectorAll('.number').forEach((button) => {
 document.querySelectorAll('.operationButtons').forEach((operator) => {
   operator.addEventListener('click', () => {
     inputDisplay.value += operator.value
+
+    decimal.disabled = false
     if (a !== '' && b !== '') {
       total = operate(operation, a, b)
       outputDisplay.value = total
       a = total
       b = ''
     }
+
     operation = operator.value
   })
 })
+
+//add decimal numbers and disable if user wants to add more
+let decimal = document.getElementById('decimal')
+decimal.addEventListener('click', disableButton)
+
+function disableButton() {
+  if (a.toString().indexOf('.') === -1) {
+    a += '.'
+    inputDisplay.value += '.'
+  } else if (operation !== '' && !b.includes('.')) {
+    b += '.'
+    inputDisplay.value += '.'
+  } else {
+    decimal.disabled = true
+  }
+}
 
 // click on "=" and get total
 document.getElementById('total').addEventListener('click', () => {
@@ -85,4 +104,5 @@ document.getElementById('clear').addEventListener('click', () => {
   a = ''
   b = ''
   operation = ''
+  decimal.disabled = false
 })
