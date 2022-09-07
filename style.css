@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Solway:wght@500&display=swap');
+
 body {
   padding: 0;
   margin: 0;
@@ -5,21 +8,80 @@ body {
   height: 100vh;
   display: grid;
   place-items: center;
+  background-color: #333;
+  font-family: 'Solway', serif;
 }
 
 .calc {
-  width: 350px;
-  height: 350px;
+  /* background: #200122; 
+background: -webkit-linear-gradient(to top, rgb(111, 0, 0), #200122); 
+background: linear-gradient(to top, #6f0000, #200122);      */
+
+  background: #c04848;
+  background: -webkit-linear-gradient(to top, #480048, rgb(192, 72, 72));
+  background: linear-gradient(to top, #3b003b, #c04848);
+
+  border-radius: 20px;
+}
+
+.calc-inner {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  margin: 20px;
+  grid-gap: 10px;
 }
 
 #display-screen {
   display: grid;
   grid-column: 1 / -1;
-  border: 1px solid black;
+  padding: 20px 0;
+  margin-bottom: 20px;
 }
 
-#displayInput, #displayOutput {
+#displayInput,
+#displayOutput {
   border: none;
+  text-align: right;
+  background-color: inherit;
+  font-family: inherit;
+}
+
+#displayInput {
+  font-size: 18px;
+  padding-bottom: 10px;
+  color: rgb(221, 221, 221);
+}
+
+#displayOutput {
+  color: rgb(255, 255, 255);
+  font-size: 25px;
+  font-weight: bold;
+}
+
+button {
+  border: none;
+  height: 60px;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 24px;
+  font-family: inherit;
+}
+
+button:hover {
+  background-color: rgba(229, 229, 229, 0.2);
+}
+
+#total {
+  grid-column: 3 / span 2;
+  grid-row: 6;
+}
+
+.operationButtons {
+  background-color: #480048b5;
+}
+
+#total,
+#clear {
+  color: #de0000;
 }
