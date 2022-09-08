@@ -40,6 +40,7 @@ let total = ''
 let operation = ''
 let a = ''
 let b = ''
+let operatorValue = ''
 
 // click on the number buttons and make them display on the screen
 document.querySelectorAll('.number').forEach((button) => {
@@ -56,18 +57,21 @@ document.querySelectorAll('.number').forEach((button) => {
 // get operations
 document.querySelectorAll('.operationButtons').forEach((operator) => {
   operator.addEventListener('click', () => {
-    inputDisplay.value += operator.value
-
     decimal.disabled = false
-    if (a !== '' && b !== '') {
+    //inputDisplay.value += operator.value
+    if (a === '') {
+      return
+    } else if (a !== '' && b !== '') {
       total = operate(operation, a, b)
       inputDisplay.value = total
       inputDisplay.value += operator.value
       outputDisplay.value = total
       a = total
       b = ''
+    } else {
+      operatorValue = operator.value
+      inputDisplay.value = `${a} ${operatorValue} `
     }
-
     operation = operator.value
   })
 })
@@ -126,9 +130,13 @@ document.getElementById('percent').addEventListener('click', () => {
   } else if (a !== '' && operation === '') {
     a = a / 100
     inputDisplay.value = a
-  } else if (operation !== '' && b !== '' && !inputDisplay.value.includes('=')) {
+  } else if (
+    operation !== '' &&
+    b !== '' &&
+    !inputDisplay.value.includes('=')
+  ) {
     b = b / 100
-    inputDisplay.value = `${a} + ${b}`
+    inputDisplay.value = `${a} ${operation} ${b}`
   } else {
     inputDisplay.value = total
     inputDisplay.value += '%'
@@ -140,9 +148,7 @@ document.getElementById('percent').addEventListener('click', () => {
 //keyboard support
 
 window.addEventListener('keydown', function (e) {
-  let button = document.querySelector(`input[data-key="${e.key}"]`)
-
+  let button = document.querySelector(`button[data-key="${e.key}"]`)
   if (!button) return // stop the function from running
-  console.log(button)
   button.click()
 })
