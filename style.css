@@ -16,10 +16,10 @@ body {
   /* background: #200122; 
 background: -webkit-linear-gradient(to top, rgb(111, 0, 0), #200122); 
 background: linear-gradient(to top, #6f0000, #200122);      */
-
+ 
   background: #c04848;
   background: -webkit-linear-gradient(to top, #480048, rgb(192, 72, 72));
-  background: linear-gradient(to top, #3b003b, #c04848);
+  background: linear-gradient(to top, #3b003b, #c04848); 
 
   border-radius: 20px;
 }
@@ -78,10 +78,10 @@ button:hover {
 }
 
 .operationButtons {
-  background-color: #480048b5;
+  background-color: #cd0000cc;
 }
 
 #total,
 #clear {
-  color: #de0000;
-}
+  color: #cd0000cc;
+} 

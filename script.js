@@ -117,6 +117,26 @@ document.getElementById('clear').addEventListener('click', () => {
   decimal.disabled = false
 })
 
+// // percentage
+document.getElementById('percent').addEventListener('click', () => {
+  inputDisplay.value += '%'
+  //if there is no number yet, display error
+  if (a === '') {
+    outputDisplay.value = 'Error'
+  } else if (a !== '' && operation === '') {
+    a = a / 100
+    inputDisplay.value = a
+  } else if (operation !== '' && b !== '' && !inputDisplay.value.includes('=')) {
+    b = b / 100
+    inputDisplay.value = `${a} + ${b}`
+  } else {
+    inputDisplay.value = total
+    inputDisplay.value += '%'
+    total = total / 100
+    outputDisplay.value = total
+  }
+})
+
 //keyboard support
 
 window.addEventListener('keydown', function (e) {
