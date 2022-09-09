@@ -82,7 +82,15 @@ let decimal = document.getElementById('decimal')
 decimal.addEventListener('click', decimalButton)
 
 function decimalButton() {
-  if (a.toString().indexOf('.') === -1 && operation === '') {
+  if(total !== "" && inputDisplay.value.includes("=")) {
+    inputDisplay.value = `${'.'}`
+    outputDisplay.value = ''
+    a = `${"."}`
+    b = ""
+    operation = ""
+    total = ""
+  }
+  else if (a.toString().indexOf('.') === -1 && operation === '') {
     a += '.'
     inputDisplay.value += '.'
   } else if (
@@ -92,9 +100,6 @@ function decimalButton() {
   ) {
     b += '.'
     inputDisplay.value += '.'
-  } else if (total !== '') {
-    inputDisplay.value = `${'.'}`
-    outputDisplay.value = ''
   } else {
     decimal.disabled = true
   }
