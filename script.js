@@ -70,7 +70,7 @@ document.querySelectorAll('.operationButtons').forEach((operator) => {
       b = ''
     } else {
       operatorValue = operator.value
-      inputDisplay.value = `${a} ${operatorValue} `
+      inputDisplay.value = `${a}${operatorValue}`
     }
     operation = operator.value
   })
@@ -81,12 +81,19 @@ let decimal = document.getElementById('decimal')
 decimal.addEventListener('click', decimalButton)
 
 function decimalButton() {
-  if (a.toString().indexOf('.') === -1 && operation == '') {
+  if (a.toString().indexOf('.') === -1 && operation === '') {
     a += '.'
     inputDisplay.value += '.'
-  } else if (operation !== '' && !b.includes('.')) {
+  } else if (
+    operation !== '' &&
+    !b.includes('.') &&
+    !inputDisplay.value.includes('=')
+  ) {
     b += '.'
     inputDisplay.value += '.'
+  } else if (total !== '') {
+    inputDisplay.value = `${'.'}`
+    outputDisplay.value = ''
   } else {
     decimal.disabled = true
   }
@@ -107,7 +114,24 @@ document.getElementById('total').addEventListener('click', () => {
 //delete one by one
 let backspaceButton = document.getElementById('backspace')
 backspaceButton.addEventListener('click', () => {
-  inputDisplay.value = inputDisplay.value.slice(0, -1)
+  if (total !== '' && inputDisplay.value.includes('=')) {
+    inputDisplay.value = ''
+    outputDisplay.value = ''
+    a = ''
+    b = ''
+    operation = ''
+    total = ''
+  } else if (b !== '') {
+    b = b.slice(0, -1)
+  } else if (operation !== '') {
+    operation = operation.slice(0, -1)
+  } else if (a !== '') {
+    a = a.slice(0, -1)
+  }
+  inputDisplay.value = inputDisplay.value.substring(
+    0,
+    inputDisplay.value.length - 1,
+  )
 })
 
 // clear the display and variables
@@ -136,7 +160,7 @@ document.getElementById('percent').addEventListener('click', () => {
     !inputDisplay.value.includes('=')
   ) {
     b = b / 100
-    inputDisplay.value = `${a} ${operation} ${b}`
+    inputDisplay.value = `${a}${operation}${b}`
   } else {
     inputDisplay.value = total
     inputDisplay.value += '%'
