@@ -13,13 +13,12 @@ body {
 }
 
 .calc {
-  /* background: #200122; 
-background: -webkit-linear-gradient(to top, rgb(111, 0, 0), #200122); 
-background: linear-gradient(to top, #6f0000, #200122);      */
- 
-  background: #c04848;
-  background: -webkit-linear-gradient(to top, #480048, rgb(192, 72, 72));
-  background: linear-gradient(to top, #3b003b, #c04848); 
+  /* background: #23074d; 
+  background: -webkit-linear-gradient(to top, #cc5333, #23074d);  
+  background: linear-gradient(to top, #cc5333, #23074d);   */
+  background: #cc2b5e;
+  background: -webkit-linear-gradient(to bottom, #250f63, #b60c42);
+  background: linear-gradient(to bottom, #250f63, #b60c42);
 
   border-radius: 20px;
 }
@@ -47,7 +46,7 @@ background: linear-gradient(to top, #6f0000, #200122);      */
 }
 
 #displayInput {
-  font-size: 18px;
+  font-size: 20px;
   padding-bottom: 10px;
   color: rgb(221, 221, 221);
 }
@@ -66,10 +65,11 @@ button {
   color: white;
   font-size: 24px;
   font-family: inherit;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
-  background-color: rgba(229, 229, 229, 0.2);
+  background-color: rgba(229, 229, 229, 0.3);
 }
 
 #total {
@@ -78,10 +78,10 @@ button:hover {
 }
 
 .operationButtons {
-  background-color: #cd0000cc;
+  background-color: rgb(35, 7, 77);
 }
 
 #total,
 #clear {
-  color: #cd0000cc;
-} 
+  color: #23074d;
+}
