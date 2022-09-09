@@ -45,12 +45,14 @@ let operatorValue = ''
 // click on the number buttons and make them display on the screen
 document.querySelectorAll('.number').forEach((button) => {
   button.addEventListener('click', (e) => {
-    inputDisplay.value += e.target.value
-    if (operation === '') {
+    if (inputDisplay.value.includes('=')) {
+      return
+    } else if (operation === '') {
       a += e.target.value
     } else {
       b += e.target.value
     }
+    inputDisplay.value += e.target.value
   })
 })
 
