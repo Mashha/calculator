@@ -58,7 +58,6 @@ document.querySelectorAll('.number').forEach((button) => {
 document.querySelectorAll('.operationButtons').forEach((operator) => {
   operator.addEventListener('click', () => {
     decimal.disabled = false
-    //inputDisplay.value += operator.value
     if (a === '') {
       return
     } else if (a !== '' && b !== '') {
@@ -101,8 +100,11 @@ function decimalButton() {
 
 // click on "=" and get total
 document.getElementById('total').addEventListener('click', () => {
+  //if there is one = already, don't add more
   // if there are numbers or operators missing, display massage
-  if (a === '' || b === '' || operation === '') {
+  if (inputDisplay.value.includes('=')) {
+    return
+  } else if (a === '' || b === '' || operation === '') {
     outputDisplay.value = 'Values missing'
   } else {
     total = operate(operation, a, b)
@@ -114,6 +116,7 @@ document.getElementById('total').addEventListener('click', () => {
 //delete one by one
 let backspaceButton = document.getElementById('backspace')
 backspaceButton.addEventListener('click', () => {
+  //clear all if the total is present
   if (total !== '' && inputDisplay.value.includes('=')) {
     inputDisplay.value = ''
     outputDisplay.value = ''
@@ -170,7 +173,6 @@ document.getElementById('percent').addEventListener('click', () => {
 })
 
 //keyboard support
-
 window.addEventListener('keydown', function (e) {
   let button = document.querySelector(`button[data-key="${e.key}"]`)
   if (!button) return // stop the function from running
