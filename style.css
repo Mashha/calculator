@@ -43,6 +43,8 @@ body {
   text-align: right;
   background-color: inherit;
   font-family: inherit;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 #displayInput {
@@ -88,11 +90,8 @@ button:hover {
 
 /* mobile */
 @media (max-width: 412px) {
-
-body {
-  height: auto;
-}
 .calc {
-  width: inherit;
+  width: 100vw;
+  height: 100vh;
 }
 }
