@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Solway:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inspiration&display=swap');
 
 body {
   padding: 0;
@@ -10,6 +11,7 @@ body {
   place-items: center;
   background-color: #333;
   font-family: 'Solway', serif;
+  position: relative;
 }
 
 .calc {
@@ -88,10 +90,29 @@ button:hover {
   color: #23074d;
 }
 
+#name {
+  font-family: 'Inspiration', cursive;
+  font-size: 24px;
+}
+
+footer {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+} 
+
+footer p {
+  text-align: center;
+  margin-bottom: 5px;
+  color: #b60c42;
+  font-size: 15px;
+}
+
+
 /* mobile */
 @media (max-width: 412px) {
 .calc {
   width: 100vw;
-  height: 100vh;
+  height: auto;
 }
 }
