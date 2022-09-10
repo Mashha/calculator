@@ -85,3 +85,14 @@ button:hover {
 #clear {
   color: #23074d;
 }
+
+/* mobile */
+@media (max-width: 412px) {
+
+body {
+  height: auto;
+}
+.calc {
+  width: inherit;
+}
+}
