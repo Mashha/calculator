@@ -99,7 +99,7 @@ footer {
   width: 100%;
   position: absolute;
   bottom: 0;
-} 
+}
 
 footer p {
   text-align: center;
@@ -108,11 +108,14 @@ footer p {
   font-size: 15px;
 }
 
-
 /* mobile */
 @media (max-width: 412px) {
-.calc {
-  width: 100vw;
-  height: auto;
-}
+  body {
+    place-items: baseline;
+  }
+
+  .calc {
+    width: 100vw;
+    height: auto;
+  }
 }
