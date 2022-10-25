@@ -93,6 +93,11 @@ button:hover {
 #name {
   font-family: 'Inspiration', cursive;
   font-size: 24px;
+  color:white;
+}
+
+.fa-github {
+  color: white;
 }
 
 footer {
